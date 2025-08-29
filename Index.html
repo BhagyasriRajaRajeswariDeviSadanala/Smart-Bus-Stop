@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Smart Bus Stop - Live Tracking</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f4f4f9;
+      color: #333;
+    }
+    header {
+      background: #2b6cb0;
+      color: white;
+      padding: 15px;
+      text-align: center;
+      font-size: 1.5rem;
+    }
+    .container {
+      max-width: 800px;
+      margin: 20px auto;
+      padding: 20px;
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+    h2 {
+      color: #2b6cb0;
+      margin-bottom: 10px;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 15px;
+    }
+    th, td {
+      padding: 12px;
+      border: 1px solid #ddd;
+      text-align: center;
+    }
+    th {
+      background: #2b6cb0;
+      color: white;
+    }
+    .highlight {
+      background: #e6f7ff;
+      font-weight: bold;
+    }
+    footer {
+      background: #2b6cb0;
+      color: white;
+      padding: 10px;
+      text-align: center;
+      margin-top: 20px;
+      font-size: 0.9rem;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    🚌 Smart Bus Stop - Live Tracking
+  </header>
+
+  <div class="container">
+    <h2>Next Bus Arrival</h2>
+    <p><b>Route:</b> 102 | <b>Destination:</b> City Center</p>
+    <p><b>Estimated Arrival:</b> <span id="arrival">3 mins</span></p>
+
+    <h2>Today's Timetable</h2>
+    <table>
+      <tr>
+        <th>Route</th>
+        <th>Destination</th>
+        <th>Arrival Time</th>
+        <th>Status</th>
+      </tr>
+      <tr>
+        <td>102</td>
+        <td>City Center</td>
+        <td>08:15 AM</td>
+        <td class="highlight">Arriving Soon</td>
+      </tr>
+      <tr>
+        <td>205</td>
+        <td>Airport</td>
+        <td>08:30 AM</td>
+        <td>On Time</td>
+      </tr>
+      <tr>
+        <td>310</td>
+        <td>Railway Station</td>
+        <td>08:45 AM</td>
+        <td>On Time</td>
+      </tr>
+    </table>
+  </div>
+
+  <footer>
+    Providing real-time bus arrival updates for passengers
+  </footer>
+
+  <script>
+    let countdown = 3;
+    function updateArrival() {
+      document.getElementById("arrival").textContent = countdown + " mins";
+      countdown--;
+      if (countdown >= 0) {
+        setTimeout(updateArrival, 60000);
+      } else {
+        document.getElementById("arrival").textContent = "Arrived";
+      }
+    }
+    updateArrival();
+  </script>
+</body>
+</html>
